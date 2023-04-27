@@ -10,7 +10,7 @@ desired_caps = {
     "platformName": "ios",
     "platformVersion": "14",
     "isRealMobile": True,
-    "app": "lt://proverbial-ios",  # Enter app_url here
+#     "app": "lt://proverbial-ios",  # Enter app_url here
     "build": "Python Vanilla iOS",
     "name": "Sample Test - Python",
     "network": False,
@@ -34,6 +34,7 @@ def startingTest():
     try:
         driver = webdriver.Remote(desired_capabilities=desired_caps, command_executor="https://" +
                                   username+":"+accesskey+"@mobile-hub.lambdatest.com/wd/hub")
+        print("DesiredCapabilities-----",desired_caps);
         time.sleep(3)
         colorElement = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((MobileBy.ACCESSIBILITY_ID, "color")))
